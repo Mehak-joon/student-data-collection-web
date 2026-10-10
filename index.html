@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Modern and responsive student data collection portal with client-side validation." />
+  <title>EduPortal | Student Information System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="glow-bg glow-1"></div>
+  <div class="glow-bg glow-2"></div>
+
+  <div class="app-wrapper">
+    <!-- Header Section -->
+    <header class="main-header">
+      <div class="header-top-row">
+        <div class="brand-container">
+          <div class="brand-icon">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="badge">Academic Portal</span>
+            <h1 class="brand-title">Student Registry Portal</h1>
+          </div>
+        </div>
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme" title="Switch Theme">
+          <span class="theme-icon sun-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+            </svg>
+          </span>
+          <span class="theme-icon moon-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+            </svg>
+          </span>
+          <span class="theme-label" id="themeLabel">Dark</span>
+        </button>
+      </div>
+      <p class="brand-subtitle">
+        Secure and streamlined student data collection with real-time verification.
+      </p>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="content-grid">
+      <!-- Student Enrollment Form Card -->
+      <section class="card form-card">
+        <div class="card-header">
+          <div class="header-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M19 8v6M22 11h-6"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="card-title">Enroll Student</h2>
+            <p class="card-desc">Enter complete student credentials below</p>
+          </div>
+        </div>
+
+        <form id="studentForm" novalidate>
+          <!-- Full Name Field -->
+          <div class="form-group">
+            <label for="fullName">
+              Full Name <span class="required">*</span>
+            </label>
+            <div class="input-wrapper">
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </span>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="e.g. Alex Morgan"
+                autocomplete="name"
+              />
+            </div>
+            <span class="error-text" id="nameError"></span>
+          </div>
+
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="email">
+              Email Address <span class="required">*</span>
+            </label>
+            <div class="input-wrapper">
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+              </span>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="alex.morgan@university.edu"
+                autocomplete="email"
+              />
+            </div>
+            <span class="error-text" id="emailError"></span>
+          </div>
+
+          <!-- Course Field -->
+          <div class="form-group">
+            <label for="course">
+              Academic Course <span class="required">*</span>
+            </label>
+            <div class="input-wrapper">
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                  <path d="M6 6h10M6 10h10"/>
+                </svg>
+              </span>
+              <select id="course" name="course">
+                <option value="" disabled selected>Select a program</option>
+                <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                <option value="Artificial Intelligence & Data Science">Artificial Intelligence & Data Science</option>
+                <option value="Software Systems Development">Software Systems Development</option>
+                <option value="Cybersecurity & Information Assurance">Cybersecurity & Information Assurance</option>
+                <option value="Cloud Computing & DevOps">Cloud Computing & DevOps</option>
+                <option value="Business Information Technology">Business Information Technology</option>
+              </select>
+            </div>
+            <span class="error-text" id="courseError"></span>
+          </div>
+
+          <!-- Form Actions -->
+          <div class="form-actions">
+            <button type="button" id="resetBtn" class="btn btn-secondary">
+              Reset
+            </button>
+            <button type="submit" id="submitBtn" class="btn btn-primary">
+              <span>Register Student</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Registered Students Registry Card -->
+      <section class="card records-card">
+        <div class="card-header records-header">
+          <div>
+            <div class="records-title-wrapper">
+              <h2 class="card-title">Enrolled Students</h2>
+              <span class="counter-badge" id="recordCount">0 Students</span>
+            </div>
+            <p class="card-desc">Live registry list stored in local session</p>
+          </div>
+          <button id="clearAllBtn" class="btn-text" title="Clear all recorded entries">
+            Clear All
+          </button>
+        </div>
+
+        <div class="records-container" id="recordsContainer">
+          <!-- Dynamic cards or empty state injected by JavaScript -->
+          <div class="empty-state" id="emptyState">
+            <div class="empty-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="12" x2="12" y2="16"/>
+                <line x1="10" y1="14" x2="14" y2="14"/>
+              </svg>
+            </div>
+            <h3>No Students Enrolled Yet</h3>
+            <p>Submit the form to add the first student record to the registry.</p>
+          </div>
+          <ul class="records-list" id="recordsList"></ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- Custom Warning & Confirmation Modal Dialog -->
+    <div id="confirmModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-dialog">
+        <div class="modal-icon-wrapper" id="modalIconWrapper">
+          <svg id="modalIcon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <div class="modal-body">
+          <h3 class="modal-title" id="modalTitle">Confirm Action</h3>
+          <p class="modal-desc" id="modalDesc">Are you sure you want to proceed?</p>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary modal-cancel-btn" id="modalCancelBtn">Cancel</button>
+          <button type="button" class="btn btn-primary" id="modalConfirmBtn">Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast" role="alert" aria-live="polite">
+      <div class="toast-icon" id="toastIcon"></div>
+      <div class="toast-content">
+        <span class="toast-title" id="toastTitle"></span>
+        <span class="toast-message" id="toastMessage"></span>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <p>&copy; 2026 Student Information Management System &bull; Designed with HTML5, CSS3 &amp; Vanilla JavaScript</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
